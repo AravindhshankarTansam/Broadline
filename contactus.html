@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -17,9 +17,16 @@
     <link rel="stylesheet" href="assets/css/templatemo-eduwell-style.css">
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/lightbox.css">
-  </head>
-<body>
 
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init('W0dYXBvbhG6nupPPO'); //EmailJS  Public API or Pravite API
+        })();
+    </script>
+</head>
+<body>
 
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
@@ -29,17 +36,16 @@
                 <nav class="main-nav">
                   <!-- ***** Logo Start ***** -->
                   <a href="index.html" class="logo">
-                      <img src="./assets/images/Broadlinenew.png" alt="Broadline" height="80px"  width="70px">
-                       
+                      <img src="./assets/images/Broadlinenew.png" alt="Broadline" height="80px" width="70px">
                   </a>
                   <!-- ***** Logo End ***** -->
                   <!-- ***** Menu Start ***** -->
                   <ul class="nav">
-                      <li ><a href="index.html" >Home</a></li>
-                      <li><a href="about-us.html" >About Us</a></li> 
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="about-us.html">About Us</a></li>
                       <li class="scroll-to-section"><a href="#services">Services</a></li>
-                      <li> <a href="erppractices.html">ERP Practices</a></li>
-                      <li ><a href="careers.html">Careers</a></li> 
+                      <li><a href="erppractices.html">ERP Practices</a></li>
+                      <li><a href="careers.html">Careers</a></li>
                       <li><a href="contactus.html" class="active">Contact Us</a></li>
                   </ul>        
                   <a class='menu-trigger'>
@@ -51,20 +57,21 @@
           </div>
       </div>
   </header>
+  
+  <!-- ***** Contact Us Section Start ***** -->
   <section class="contact-us">
     <div class="container">
       <div class="row">
         <div class="col-lg-8">
           <div id="map">
-          	<!-- You just need to go to Google Maps for your own map point, and copy the embed code from Share -> Embed a map section -->
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.216878993569!2d80.2456133153202!3d13.052413890805775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5266df1dbf3e17%3A0xb5c9b0a2a665f853!2s7%2C%202nd%20Floor%2C%20Khader%20Nawaz%20Khan%20Rd%2C%20Thousand%20Lights%20West%2C%20Nungambakkam%2C%20Chennai%2C%20Poombukar%20Nagar%2C%20Tamil%20Nadu%20600006!5e0!3m2!1sen!2sin!4v1644335269264!5m2!1sen!2sin&z=16&marker=true&markers=color:red%7Clabel:C%7C13.052413890805775,80.2456133153202" width="100%" height="420px" frameborder="0" style="border:0; border-radius: 15px; position: relative; z-index: 2;" allowfullscreen=""></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.216878993569!2d80.2456133153202!3d13.052413890805775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5266df1dbf3e17%3A0xb5c9b0a2a665f853!2s7%2C%202nd%20Floor%2C%20Khader%20Nawaz%20Khan%20Rd%2C%20Thousand%20Lights%20West%2C%20Nungambakkam%2C%20Chennai%2C%20Poombukar%20Nagar%2C%20Tamil%20Nadu%20600006!5e0!3m2!1sen!2sin!4v1644335269264!5m2!1sen!2sin&z=16&marker=true&markers=color:red%7Clabel:C%7C13.052413890805775,80.2456133153202" width="100%" height="420px" frameborder="0" style="border:0; border-radius: 15px; position: relative; z-index: 2;" allowfullscreen=""></iframe>
             <div class="row">
               <div class="col-lg-4 offset-lg-1">
                 <div class="contact-info">
                   <div class="icon">
                     <i class="fa fa-phone"></i>
                   </div>
-                  <h4>Phone</h4>
+                  <h4>Line-line Number</h4>
                   <span>044-28333083</span>
                 </div>
               </div>
@@ -81,23 +88,23 @@
           </div>
         </div>
         <div class="col-lg-4">
-          <form id="contact" action="" method="post">
+          <form id="contact" onsubmit="sendEmail(event)">
             <div class="row">
               <div class="col-lg-12">
                 <div class="section-heading">
-                  <h6>Contact us</h6>
-                  <h4>Say <em>Hello</em></h4>
+                  <h6>Let's Connect</h6>
+                  <h4><em>Contact us</em></h4>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, deleniti?</p>
                 </div>
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <input type="name" name="name" id="name" placeholder="Full Name" autocomplete="on" required>
+                  <input type="text" name="from_name" id="name" placeholder="Full Name" autocomplete="on" required>
                 </fieldset>
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email" required="">
+                  <input type="email" name="reply_to" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email" required>
                 </fieldset>
               </div>
               <div class="col-lg-12">
@@ -118,35 +125,33 @@
   </section>
 
   <!-- New Footer -->
-
-<footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section about">
-          <h3>About Us</h3>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed cum cupiditate dolores laudantium sequi provident?</p>
-        </div>
-        <div class="footer-section links">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./about-us.html">About</a></li>
-            <li><a href="#">Services</a></li>
-          </ul>
-        </div>
-        <div class="footer-section contact">
-          <h3>Contact Us</h3>
-          <p>Address: 7, 2nd Floor, Khader Nawaz Khan Rd, Thousand Lights West, Nungambakkam, Chennai, Poombukar Nagar, Tamil Nadu 600006</p>
-          <p>Phone: +91 98843 98707</p>
-          <p>Email: info@broadline.co.in</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        &copy; 2024 BROADLINE. All Rights Reserved.
-      </div>
+  <footer class="footer-bottom">
+    <div class="footer-content">
+      &copy; 2024 BROADLINE. All Rights Reserved.
+    </div>
+    <div class="lastline12">
+      <ul>
+        <li><a href="#">Terms & Condition</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
     </div>
   </footer>
 
+  <!-- EmailJS Script -->
+  <script type="text/javascript">
+    function sendEmail(event) {
+      event.preventDefault(); // Prevent the default form submission
+  
+      emailjs.sendForm('service_xr02dkg', 'template_unqxhjs', event.target) //  EmailJS(Email Services), (Email Templates) 
+        .then(function() {
+          alert('Message sent successfully!');
+          event.target.reset(); // Clear the form fields
+        }, function(error) {
+          alert('Failed to send the message. Please try again later.');
+        });
+    }
+  </script>
+  
   
 </body>
 </html>
